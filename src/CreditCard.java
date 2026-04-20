@@ -1,7 +1,7 @@
-public class CreditCard implements Comparable<CreditCard> {
-    String name = ""; 
-    double apr; 
-    double balance;
+public class CreditCard {
+    private String name; 
+    private double apr; 
+    private double balance;
 
     public CreditCard(String name, double apr, double balance) {
         this.name = name; 
@@ -9,7 +9,22 @@ public class CreditCard implements Comparable<CreditCard> {
         this.balance = balance; 
     }
 
-    public int compareTo(CreditCard other) {
-        return 0; 
+    public String getName() {
+        return this.name;
     }
+
+    public double getApr() { 
+        return this.apr; 
+    }
+
+    public double getBalance() {
+        return this.balance; 
+    }
+
+    @Override
+    public String toString() {
+        return "CreditCard [name=" + name + ", apr=" + apr + ", balance=" + balance + "]";
+    }
+
+
 }

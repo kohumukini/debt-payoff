@@ -9,7 +9,11 @@ public class PayoffApp {
     public static void main(String[] args) { 
         Scanner scan = new Scanner(System.in);
 
-        List<Double> aprs = new ArrayList<>(); 
+        CreditCard amex = new CreditCard("American Express", 18.4, 402); 
+        System.out.println(amex);
+
+        List<Double> aprs = new ArrayList<>();
+        List<CreditCard> cards = new ArrayList<>();  
 
         while(scan.hasNextLine()) {
             String name = scan.nextLine();
@@ -17,7 +21,7 @@ public class PayoffApp {
             double apr = scan.nextDouble();
             double balance = scan.nextDouble();
 
-            aprs.add(apr); 
+            cards.add(new CreditCard(name, apr, balance));
 
             // Consume \n after balance input 
             if(scan.hasNextLine()) scan.nextLine();
@@ -26,8 +30,9 @@ public class PayoffApp {
             String balanceString = String.format("$%.2f", balance);
             System.out.println(name + ": " + "APR: " + aprString + " Balance: " + balanceString);
         }
-        Collections.sort(aprs, Collections.reverseOrder());
 
-        System.out.println(aprs); 
+        // Collections.sort(cards);
+
+        System.out.println(cards); 
     }
 }
